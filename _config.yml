@@ -1,0 +1,18 @@
+url: https://needleworm.github.io/
+baseurl: /prompt
+
+# Site settings
+title: Prompt Engineering
+email: bhban@kakao.com
+description: 프롬프트 엔지니어링 도서 홈페이지
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: github
+    url: http://github.com/needleworm
+
+
+# Build settings
+highlighter: true
+markdown: kramdown
+permalink: pretty
