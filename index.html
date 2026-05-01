@@ -1,20 +1,135 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hagonie's Tools & Portfolio</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="#"><span>Hago</span>nie</a>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#projects" class="nav-link">Tools</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<div class="home">
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">모두가 게으르고 스마트하게<br><span class="highlight">일할 수 있는 그 날을 위하여</span></h1>
+            <p class="hero-subtitle">가장 효율적인 툴과 아이디어를 공유합니다.</p>
+            <a href="#projects" class="cta-button">Explore Tools</a>
+        </div>
+        <!-- Decorative Elements -->
+        <div class="decoration circle-1"></div>
+        <div class="decoration circle-2"></div>
+        <div class="decoration circle-3"></div>
+    </section>
 
-  <h1>Posts</h1>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>안녕하세요! <strong>게으름을 위한 스마트함</strong>을 연구합니다.</p>
+                    <p>반복되고 지루한 업무를 자동화하고, 누구나 쉽게 사용할 수 있는 도구들을 기획하고 제작합니다. 현재는 아이디어를 하나씩 구체화하는 단계에 있으며, 앞으로 이곳에 저만의 효율적인 툴들을 배포할 예정입니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-      </li>
-    {% endfor %}
-  </ul>
+    <!-- Projects / Tools Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tools & Ideas</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="grid-container">
+                <!-- Project Card 1 -->
+                <div class="card">
+                    <div class="card-img-placeholder green-bg">
+                        <span>🚀</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>스마트 업무 자동화 툴</h3>
+                        <p>단순 반복 작업을 줄여주는 파이썬 스크립트 기반 도구입니다. (준비 중)</p>
+                        <a href="#" class="card-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="card">
+                    <div class="card-img-placeholder yellow-bg">
+                        <span>💡</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>아이디어 노트</h3>
+                        <p>게으르게 일하기 위한 다양한 아이디어와 영감을 기록하는 공간입니다.</p>
+                        <a href="#" class="card-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project Card 3 -->
+                <div class="card">
+                    <div class="card-img-placeholder white-bg">
+                        <span>🛠️</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>커스텀 템플릿 모음</h3>
+                        <p>생산성을 높여주는 노션 및 문서 템플릿들을 공유합니다.</p>
+                        <a href="#" class="card-link">자세히 보기 &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="contact-content">
+                <p>협업 제안이나 궁금한 점이 있으시다면 언제든 연락주세요.</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="icon">📧</span>
+                        <p>이메일 주소 추가 예정</p>
+                    </div>
+                    <div class="contact-item">
+                        <span class="icon">📱</span>
+                        <p>연락처 추가 예정</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hagonie. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+</html>
