@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Image Resizer</title>
+  
+  <!-- SEO 및 기본 메타 정보 -->
+  <meta name="description" content="브라우저에서 직접 이미지를 원하는 비율로 자르거나 패딩을 추가해주는 스마트 이미지 리사이저">
+  
+  <!-- 폰트 로드 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- 스타일시트 로드 -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- 헤더 영역 -->
+  <header class="header glass-panel">
+    <a href="https://nanalab.kr" class="logo-link">
+      <img src="logo.png" alt="Nana Lab Logo" class="logo">
+    </a>
+    <h1 class="app-title">Smart Image Resizer</h1>
+  </header>
+
+  <!-- 메인 콘텐츠 영역 -->
+  <main class="main-container">
+    
+    <!-- 컨트롤 패널 (좌측) -->
+    <aside class="control-panel glass-panel">
+      <h2>Settings</h2>
+      
+      <!-- 캔버스 비율 설정 -->
+      <div class="control-group">
+        <label>Canvas Ratio</label>
+        <div class="ratio-options">
+          <label class="ratio-btn"><input type="radio" name="ratio" value="1:1" checked><span>1:1</span></label>
+          <label class="ratio-btn"><input type="radio" name="ratio" value="3:4"><span>3:4</span></label>
+          <label class="ratio-btn"><input type="radio" name="ratio" value="4:3"><span>4:3</span></label>
+          <label class="ratio-btn"><input type="radio" name="ratio" value="9:16"><span>9:16</span></label>
+          <label class="ratio-btn"><input type="radio" name="ratio" value="16:9"><span>16:9</span></label>
+          <label class="ratio-btn"><input type="radio" name="ratio" value="custom"><span>Custom</span></label>
+        </div>
+        
+        <!-- 커스텀 비율 입력칸 (기본 숨김) -->
+        <div id="custom-ratio-inputs" class="custom-ratio-inputs hidden">
+          <input type="number" id="custom-width" placeholder="W" min="1" value="1920">
+          <span>:</span>
+          <input type="number" id="custom-height" placeholder="H" min="1" value="1080">
+        </div>
+      </div>
+      
+      <!-- 리사이즈 모드 설정 -->
+      <div class="control-group">
+        <label>Mode</label>
+        <div class="mode-options">
+          <label class="mode-btn"><input type="radio" name="mode" value="padding" checked><span>Padding</span></label>
+          <label class="mode-btn"><input type="radio" name="mode" value="crop"><span>Crop</span></label>
+        </div>
+      </div>
+      
+      <!-- 패딩 색상 선택 (Padding 모드일 때만 보임) -->
+      <div class="control-group" id="padding-color-group">
+        <label for="padding-color">Padding Color</label>
+        <div class="color-picker-wrap">
+          <input type="color" id="padding-color" value="#ffffff">
+          <span id="color-hex-text">#FFFFFF</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- 작업 영역 (우측) -->
+    <section class="workspace glass-panel">
+      
+      <!-- 업로드 영역 -->
+      <div id="drop-zone" class="drop-zone">
+        <div class="drop-zone-content">
+          <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+          </svg>
+          <h3>Drag & Drop Images Here</h3>
+          <p>or</p>
+          <label for="file-input" class="upload-btn">Browse Files</label>
+          <input type="file" id="file-input" multiple accept="image/*" class="hidden-input">
+        </div>
+      </div>
+
+      <!-- 진행 상황 및 결과 리스트 -->
+      <div class="results-area">
+        <div class="results-header">
+          <h2>Processed Images (<span id="processed-count">0</span>)</h2>
+          <button id="download-all-btn" class="download-all-btn" disabled>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download All (ZIP)
+          </button>
+        </div>
+        
+        <ul id="image-list" class="image-list">
+          <!-- 스크립트로 아이템이 동적으로 추가됩니다 -->
+        </ul>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- JSZip 라이브러리 및 커스텀 스크립트 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

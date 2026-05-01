@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart QR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- 상단 헤더: 좌측 로고, 우측 타이틀 -->
+    <header class="header">
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="로고" class="logo" id="logo-img">
+        </div>
+        <div class="title-wrapper">
+            <h1 class="site-title">Smart QR</h1>
+        </div>
+    </header>
+
+    <!-- 메인 컨텐츠 영역 -->
+    <main class="main-content">
+        <!-- QR 코드 출력 영역 (초기에는 숨김 처리) -->
+        <div id="qr-wrapper" class="qr-wrapper hidden">
+            <div class="qr-card" title="클릭하시면 이미지가 다운로드 됩니다!">
+                <!-- 생성된 QR 이미지가 여기에 들어갑니다 -->
+                <img id="qr-image" src="" alt="생성된 QR 코드">
+                <p class="download-text">클릭하여 다운로드 (JPG)</p>
+            </div>
+        </div>
+
+        <!-- URL 입력 영역 -->
+        <div id="input-wrapper" class="input-wrapper center-mode">
+            <div class="input-card">
+                <input type="text" id="url-input" placeholder="https://example.com" autocomplete="off">
+                <button id="generate-btn">확인</button>
+            </div>
+            <p id="error-message" class="error-message"></p>
+        </div>
+    </main>
+
+    <!-- QR 코드 생성을 위한 외부 라이브러리 (qrcode.js) 불러오기 -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
